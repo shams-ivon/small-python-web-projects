@@ -6,8 +6,8 @@ LABEL_FONT = ("Courier", 15)
 
 class QuizInterface:
 
-    def __init__(self, quizes):
-        self.quizes = quizes
+    def __init__(self, quiz):
+        self.quiz = quiz
         self.window = Tk()
         self.window.title("Qizzler")
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
@@ -40,14 +40,23 @@ class QuizInterface:
 
     def get_next_question(self):
         self.canvas.config(bg="white")
-        self.current_question = self.quizes.next_question()
-        self.canvas.itemconfig(self.question, text=self.current_question)
+        
+        if self.quiz.still_has_questions():
+            self.score_label.config(text=f"Score: {self.quiz.score}")
+            self.current_question = self.quiz.next_question()
+            self.canvas.itemconfig(self.question, text=self.current_question)
+        
+        else:
+            result = f"YOUR FINAL SCORE IS {self.quiz.score}/{self.quiz.question_number}"
+            self.canvas.itemconfig(self.question, text=result)
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def check_true(self):
-        self.give_feedback(self.quizes.check_answer("True"))
+        self.give_feedback(self.quiz.check_answer("True"))
 
     def check_false(self):
-        self.give_feedback(self.quizes.check_answer("False"))
+        self.give_feedback(self.quiz.check_answer("False"))
 
     def give_feedback(self, is_right):
         
