@@ -12,7 +12,7 @@ for item in question_data:
     question_bank.append(question_object)
 
 quizes = QuizBrain(question_bank)
-quiz_ui = QuizInterface(0)
+quiz_ui = QuizInterface(quizes)
 
 # while quizes.still_has_questions():
 #     quizes.next_question()
