@@ -39,6 +39,7 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
         self.current_question = self.quizes.next_question()
         self.canvas.itemconfig(self.question, text=self.current_question)
 
@@ -55,10 +56,7 @@ class QuizInterface:
         else:
             self.canvas.config(bg="red")
         
-        self.window.after(1000, self.change_back_to_white_and_next_question)
+        self.window.after(1000, self.get_next_question)
 
-    def change_back_to_white_and_next_question(self):
-        self.canvas.config(bg="white")
-        self.get_next_question()
         
     
