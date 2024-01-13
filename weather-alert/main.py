@@ -18,7 +18,6 @@ parameters = {
 }
 
 response_temp = requests.get(url=URL, params=parameters).json()["main"]
-print(response_temp)
 
 if response_temp["feels_like"] - 273 <= 20:
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
