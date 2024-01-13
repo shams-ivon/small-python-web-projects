@@ -1,3 +1,4 @@
+import os
 import requests
 import smtplib
 import time
@@ -7,8 +8,8 @@ ISS_POSITION_API_URL = "http://api.open-notify.org/iss-now.json"
 SUNRISE_SUNSET_API_URL = "https://api.sunrise-sunset.org/json"
 MY_LAT = 23.810331
 MY_LNG = 90.412521
-MY_EMAIL = "dfgvg"
-MY_PASSWORD = "yuiuu"
+MY_EMAIL = os.environ.get("SENDER_EMAIL_ENV")
+MY_PASSWORD = os.environ.get("SENDER_EMAIL_PASSWORD_ENV")
 
 # -------------------- SEND MAIL -------------------- #
 

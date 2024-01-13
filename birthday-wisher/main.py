@@ -1,10 +1,11 @@
+import os
 import pandas
 import random
 import smtplib
 import datetime as dt
 
-MY_EMAIL = "sfdfgm"
-MY_PASSWORD = "ftybq" # Use App Password generator to get this password
+MY_EMAIL = os.environ.get("SENDER_EMAIL_ENV")
+MY_PASSWORD = os.environ.get("SENDER_EMAIL_PASSWORD_ENV") # Use App Password generator to get this password
 
 # --------------------- MAKE A LETTER ------------------ #
 
@@ -26,7 +27,7 @@ def send_email(email, text):
         connection.sendmail(
             from_addr=MY_EMAIL, 
             to_addrs=email, 
-            msg=f"Subject:Birthday Wish\n\n{text}"
+            msg=f"Subject:Birthday Wish\n\n{text}" 
         )
 
 # ---------------------- FIND TODAYS DATE ------------------ #
