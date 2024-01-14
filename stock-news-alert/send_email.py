@@ -12,5 +12,5 @@ def send_email(email, text):
         connection.sendmail(
             from_addr=MY_EMAIL, 
             to_addrs=email, 
-            msg=f"Subject:Birthday Wish\n\n{text}" 
+            msg=f"Subject:Apple Stock Market News\n\n{text}" 
         )
