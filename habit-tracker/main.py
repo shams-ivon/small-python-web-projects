@@ -1,6 +1,8 @@
 import os
 # import requests
+from put_a_pixel import put_a_pixel
 from post_a_pixel import post_a_pixel
+from datetime import datetime
 
 MY_USERNAME = "ivon"
 GRAPH_ID = "graph-01"
@@ -41,10 +43,20 @@ graph_body = {
 # graph_response = requests.post(url=graph_endpoint, headers=graph_header, json=graph_body)
 # print(graph_response.text)
 
-post_a_pixel(
+today = datetime.now()
+
+# post_a_pixel(
+#     username=MY_USERNAME,
+#     graph_id=GRAPH_ID,
+#     token_key=MY_TOKEN,
+#     date=today.strftime("%Y%m%d"),
+#     quantity="22"
+# )
+
+put_a_pixel(
     username=MY_USERNAME,
     graph_id=GRAPH_ID,
     token_key=MY_TOKEN,
-    date="20240115",
-    quantity="16"
+    date=today.strftime("%Y%m%d"),
+    quantity="30"
 )
