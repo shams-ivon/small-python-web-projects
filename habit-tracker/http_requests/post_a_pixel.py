@@ -9,5 +9,5 @@ def post_a_pixel(username, graph_id, token_key, date, quantity):
         "date": date,
         "quantity": quantity,
     }
-    respone = requests.post(url=endpoint, headers=header_parameters, json=body_parameters)
-    print(respone.text)
+    response = requests.post(url=endpoint, headers=header_parameters, json=body_parameters)
+    print(response.text)

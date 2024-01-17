@@ -30,11 +30,11 @@ while True:
             pixela_create_account_endpoint="https://pixe.la/v1/users"
         )
         
-        if respone_text["isSuccess"] == "true":
-            print("Account Created Successfully")
+        # if respone_text["isSuccess"] == "true":
+        #     print("Account Created Successfully")
         
-        else:
-            print(respone_text["message"])
+        # else:
+        #     print(respone_text["message"])
 
 
     elif input_data == "2":
@@ -46,20 +46,58 @@ while True:
             pixela_create_account_endpoint="https://pixe.la/v1/users"
         )
 
-        if respone_text["isSuccess"] == "true":
-            print("Graph created successfully")
+        # if respone_text["isSuccess"] == "true":
+        #     print("Graph created successfully")
 
-        else:
-            print(respone_text["message"])
+        # else:
+        #     print(respone_text["message"])
 
     elif input_data == "3":
-        print("c")
+        
+        respone_text = post_a_pixel(
+            username=input("Your username: "),
+            token_key=input("Your password: "),
+            graph_id=input("Id of the graph you want to create record today: "),
+            date=today.strftime("%Y%m%d"),
+            quantity=input("Quantity: ")
+        )
+
+        # if respone_text["isSuccess"] == "true":
+        #     print("Graph created successfully")
+
+        # else:
+        #     print(respone_text["message"])
 
     elif input_data == "4":
-        print("d")
+
+        respone_text = put_a_pixel(
+            username=input("Your username: "),
+            token_key=input("Your password: "),
+            graph_id=input("Id of the graph you want to create record today: "),
+            date=input("Date of the record you want to update: "),
+            quantity=input("Quantity: ")
+        )
+        
+        # if respone_text["isSuccess"] == "true":
+        #     print("Graph created successfully")
+
+        # else:
+        #     print(respone_text["message"])
 
     elif input_data == "5":
-        print("e")
+
+        respone_text = delete_a_pixel(
+            username=input("Your username: "),
+            token_key=input("Your password: "),
+            graph_id=input("Id of the graph you want to create record today: "),
+            date=input("Date of the record you want to update: ")
+        )
+        
+        # if respone_text["isSuccess"] == "true":
+        #     print("Graph created successfully")
+
+        # else:
+        #     print(respone_text["message"])
 
     elif input_data == "0":
         break
@@ -67,25 +105,3 @@ while True:
     else:
         print("Please Enter a valid input")
 
-# post_a_pixel(
-#     username=MY_USERNAME,
-#     graph_id=GRAPH_ID,
-#     token_key=MY_TOKEN,
-#     date=today.strftime("%Y%m%d"),
-#     quantity="22"
-# )
-
-# put_a_pixel(
-#     username=MY_USERNAME,
-#     graph_id=GRAPH_ID,
-#     token_key=MY_TOKEN,
-#     date=today.strftime("%Y%m%d"),
-#     quantity="30"
-# )
-
-# delete_a_pixel(
-#     username=MY_USERNAME,
-#     graph_id=GRAPH_ID,
-#     token_key=MY_TOKEN,
-#     date=today.strftime("%Y%m%d")
-# )

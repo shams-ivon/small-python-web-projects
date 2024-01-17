@@ -14,5 +14,5 @@ def create_graph(username, token_key, graph_id, pixela_create_account_endpoint):
     }
     # The following post request was only for creating graph purpose
     # body must be a json=
-    graph_response = requests.post(url=graph_endpoint, headers=graph_header, json=graph_body)
-    print(graph_response.text)
+    response = requests.post(url=graph_endpoint, headers=graph_header, json=graph_body)
+    print(response.text)
