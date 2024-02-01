@@ -20,4 +20,4 @@ print(song_title_list1)
 
 song_titles2 = soup.find_all(name="h3", class_=class_name2)
 song_title_list2 = [fix(title.getText()) for title in song_titles2]
-print(song_title_list2).write(f"{movie}\n")
+print(song_title_list2)
